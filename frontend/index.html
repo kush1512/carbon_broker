@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Brokers- Home Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Tooltip styling */
+    .tooltip {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      display: none;
+      pointer-events: none;
+      z-index: 100;
+      max-width: 200px;
+    }
+    .map-container {
+      position: relative;
+      display: inline-block;
+    }
+    .hotspot {
+      position: absolute;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="p-4 sm:p-8 overflow-x-hidden">
+
+  <div class="bg-image"></div>
+
+  <div class="container py-8">
+
+    <header class="flex flex-col sm:flex-row justify-between items-center mb-10">
+      <div class="flex items-center gap-3 mb-4 sm:mb-0">
+         <img src="C_bg.png" alt="Carbon Brokers Logo" class="h-32 w-32 object-contain">
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-bold text-white mb-2">Carbon Broker</h1>
+        <p class="text-lg text-gray-400">Sustainable projects, transparently tracked on the blockchain.</p>
+      </div>
+    </div>
+      <nav class="flex flex-wrap justify-center sm:justify-end gap-3">
+        <!-- <a href="admin.html" class="btn btn-active px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Admin</a> -->
+        <!-- <a href="ngo-dashboard.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">NGO</a> -->
+        <!-- <a href="business-dashboard.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Business</a> -->
+        <a href="index.html" class="btn btn-active px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Home</a>
+        <a href="news.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">News</a>
+        <a href="login.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Login</a>
+
+      <!-- Language Selector (floating top-right) -->
+      <div class="fixed top-4 right-4 z-50">
+        <div class="relative group">
+          <!-- Language Icon -->
+          <button class="bg-blue-carbon-medium-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 focus:outline-none">
+            <!-- Globe Icon SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20M12 2c1.38 2.75 2 5.56 2 10s-.62 7.25-2 10M12 2c-1.38 2.75-2 5.56-2 10s.62 7.25 2 10"/>
+            </svg>
+          </button>
+
+          <!-- Dropdown -->
+          <ul class="absolute right-0 mt-2 w-48 bg-gray-800 text-white rounded-lg shadow-lg opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-opacity duration-300">
+            <li class="px-4 py-2 hover:bg-gray-700 cursor-pointer font-semibold">English</li>
+            <li class="px-4 py-2 hover:bg-gray-700 cursor-not-allowed text-gray-400">Hindi (Available Soon)</li>
+          </ul>
+        </div>
+      </div>
+
+      </nav>
+    </header>
+
+    <main class="space-y-8">
+      <h2 class="text-3xl font-semibold text-white">
+        <span class="inline-block align-middle mr-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" x2="9" y1="3" y2="18"></line><line x1="15" x2="15" y1="6" y2="21"></line></svg>
+        </span>
+        Projects Across the Nation
+      </h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2 card p-4 sm:p-6">
+          <h3 class="text-xl font-medium text-white mb-4">Project Map</h3>
+          <div class="map-container">
+            <img src="image.png" alt="Mangrove Map" class="w-full rounded-2xl" />
+
+            <!-- Hotspots -->
+            <div class="hotspot" style="top: 55%; left: 18%; width: 40px; height: 40px;" data-name="Forest Friends" data-location="Mumbai, Maharashtra" data-credits="5 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 42%; left: 10%; width: 40px; height: 40px;" data-name="Green Delta" data-location="Ahmedabad, Gujarat" data-credits="10 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 40%; left: 63%; width: 40px; height: 40px;" data-name="Sundarban Shield" data-location="Kolkata, West Bengal" data-credits="12 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 50%; left: 50%; width: 40px; height: 40px;" data-name="Blue Roots" data-location="Bhubaneswar, Odisha" data-credits="6 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 70%; left: 32%; width: 40px; height: 40px;" data-name="Mangrove Matrix" data-location="Visakhapatnam, Andhra Pradesh" data-credits="7 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 82%; left: 30%; width: 40px; height: 40px;" data-name="Coastal Care" data-location="Chennai, Tamil Nadu" data-credits="4 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 82%; left: 25%; width: 40px; height: 40px;" data-name="Backwater Greens" data-location="Kochi, Kerala" data-credits="2 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 75%; left: 27%; width: 40px; height: 40px;" data-name="Western Guard" data-location="Mangalore, Karnataka" data-credits="2 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 65%; left: 18%; width: 40px; height: 40px;" data-name="Coastal Shield" data-location="Panaji, Goa" data-credits="3 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 78%; left: 85%; width: 40px; height: 40px;" data-name="Island Guard" data-location="Port Blair, Andaman & Nicobar Islands" data-credits="8 tonnes of CO2"></div>
+
+            <!-- Tooltip -->
+            <div id="tooltip" class="tooltip"></div>
+          </div>
+        </div>
+
+        <!-- Right-hand cards omitted for brevity -->
+                <!-- Right-hand side cards -->
+                <!-- Right-hand side cards -->
+        <div class="lg:col-span-1 flex flex-col space-y-6">
+
+          <!-- Best NGO of the Month -->
+          <div class="card p-6 bg-gray-900 rounded-2xl shadow-lg">
+            <h3 class="text-xl font-semibold text-white mb-2">🏆 Best NGO of the Month</h3>
+            <h6 class="text-l font-normal text-grey mb-4">(Based on Credits generated)</h6>
+
+            <ul class="space-y-3">
+              <li class="flex items-center justify-between bg-gray-800 hover:bg-blue-700 p-3 rounded-lg transition duration-300">
+                <span class="font-medium text-white">September</span>
+                <span class="text-blue-400 font-semibold">Eco Warriors Foundation</span>
+              </li>
+              <li class="flex items-center justify-between bg-gray-800 hover:bg-blue-700 p-3 rounded-lg transition duration-300">
+                <span class="font-medium text-white">August</span>
+                <span class="text-blue-400 font-semibold">Green Earth Trust</span>
+              </li>
+              <li class="flex items-center justify-between bg-gray-800 hover:bg-blue-700 p-3 rounded-lg transition duration-300">
+                <span class="font-medium text-white">July</span>
+                <span class="text-blue-400 font-semibold">Mangrove Guardians</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Best Project of the Month -->
+          <div class="card p-6 bg-gray-900 rounded-2xl shadow-lg">
+            <h3 class="text-xl font-semibold text-white mb-2">🏆 Best Project of the Month</h3>
+            <h6 class="text-l font-normal text-grey mb-4">(Based on Scale of the Project)</h6>
+            <ul class="space-y-3">
+              <li class="flex items-center justify-between bg-gray-800 hover:bg-lime-700 p-3 rounded-lg transition duration-300">
+                <span class="font-medium text-white">September</span>
+                <span class="text-lime-400 font-semibold">Sundarban Shield</span>
+              </li>
+              <li class="flex items-center justify-between bg-gray-800 hover:bg-lime-700 p-3 rounded-lg transition duration-300">
+                <span class="font-medium text-white">August</span>
+                <span class="text-lime-400 font-semibold">Blue Roots</span>
+              </li>
+              <li class="flex items-center justify-between bg-gray-800 hover:bg-lime-700 p-3 rounded-lg transition duration-300">
+                <span class="font-medium text-white">July</span>
+                <span class="text-lime-400 font-semibold">Western Guard</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card p-6 bg-gray-900 rounded-2xl shadow-lg">
+            <h3 class="text-xl font-semibold text-white mb-2">🏆 Best Company of the Month</h3>
+            <h6 class="text-l font-normal text-grey mb-4">(Based on Carbon Emmissions Reduced)</h6>
+            <ul class="space-y-3">
+              <li class="flex items-center justify-between bg-gray-800 hover:bg-yellow-700 p-3 rounded-lg transition duration-300">
+                <span class="font-medium text-white">September</span>
+                <span class="text-yellow-400 font-semibold">ABC Limited</span>
+              </li>
+              <li class="flex items-center justify-between bg-gray-800 hover:bg-yellow-700 p-3 rounded-lg transition duration-300">
+                <span class="font-medium text-white">August</span>
+                <span class="text-yellow-400 font-semibold">Bansal Industries</span>
+              </li>
+              <li class="flex items-center justify-between bg-gray-800 hover:bg-yellow-700 p-3 rounded-lg transition duration-300">
+                <span class="font-medium text-white">July</span>
+                <span class="text-yellow-400 font-semibold">Ramsung Electronics</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+
+
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const hotspots = document.querySelectorAll('.hotspot');
+    const tooltip = document.getElementById('tooltip');
+    const mapContainer = document.querySelector('.map-container');
+
+    hotspots.forEach(hotspot => {
+      hotspot.addEventListener('mouseenter', () => {
+        tooltip.innerHTML = `
+          <strong>Name:</strong> ${hotspot.dataset.name}<br>
+          <strong>Location:</strong> ${hotspot.dataset.location}<br>
+          <strong>Credits Sequestered:</strong> ${hotspot.dataset.credits}
+        `;
+        tooltip.style.display = 'block';
+      });
+
+      hotspot.addEventListener('mousemove', (e) => {
+        const rect = mapContainer.getBoundingClientRect();
+        const offsetX = 10; // distance from cursor
+        const offsetY = 10;
+
+        let x = e.clientX - rect.left + offsetX;
+        let y = e.clientY - rect.top + offsetY;
+
+        // Prevent tooltip from going outside map
+        if (x + tooltip.offsetWidth > rect.width) x = rect.width - tooltip.offsetWidth - 5;
+        if (y + tooltip.offsetHeight > rect.height) y = rect.height - tooltip.offsetHeight - 5;
+
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+      });
+
+      hotspot.addEventListener('mouseleave', () => {
+        tooltip.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>

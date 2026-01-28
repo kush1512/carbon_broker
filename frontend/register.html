@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Brokers- Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-4 sm:p-8 overflow-x-hidden">
+
+    <div class="bg-image"></div>
+
+    <div class="container py-8">
+        <header class="flex flex-col sm:flex-row justify-between items-center mb-10 text-center sm:text-left">
+            <div class="mb-4 sm:mb-0">
+                <h1 class="text-4xl sm:text-5xl font-bold text-white mb-2">
+                    Carbon Broker
+                </h1>
+                <p class="text-lg text-gray-400">
+                    Sustainable projects, transparently tracked on the blockchain.
+                </p>
+            </div>
+            <nav class="flex flex-wrap justify-center sm:justify-end gap-3">
+                <!-- <a href="admin.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Admin</a> -->
+                <!-- <a href="ngo-dashboard.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">NGO</a> -->
+                <!-- <a href="business-dashboard.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Business</a> -->
+                <a href="index.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Home</a>
+                <a href="news.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">News</a>
+                <a href="login.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Login</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="max-w-3xl mx-auto">
+                <div class="card p-8 relative">
+                    <h2 class="text-3xl font-bold text-center text-white mb-4">Create an Account</h2>
+                    <div class="flex justify-center gap-4 mb-6">
+                        <button id="ngo-tab-btn" class="tab-btn px-6 py-2 rounded-full font-medium">Register as NGO</button>
+                        <button id="business-tab-btn" class="tab-btn px-6 py-2 rounded-full font-medium">Register as Business</button>
+                    </div>
+
+                    <!-- NGO General Info Form -->
+                    <form id="ngo-register-form" class="kyc-form space-y-4">
+                        <h3 class="form-section-title">Basic Information</h3>
+                        <div><label class="form-label">Name of the NGO</label><input type="text" class="form-input" placeholder="Green Earth Foundation"></div>
+                        <div><label class="form-label">Registered Address</label><input type="text" class="form-input" placeholder="123 Park Avenue, New Delhi, India"></div>
+                        <div>
+                            <label class="form-label">Type of NGO</label>
+                            <select class="form-input">
+                                <option>Trust</option>
+                                <option>Society</option>
+                                <option>Section 8 Company</option>
+                            </select>
+                        </div>
+                        <div><label class="form-label">Objectives/Mission and Vision</label><textarea class="form-input h-24" placeholder="To promote sustainable agriculture and reforestation..."></textarea></div>
+
+                        <button type="button" id="ngo-next-btn" class="w-full mt-6 bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition">Next: KYC Documents</button>
+                    </form>
+
+                    <!-- Business General Info Form -->
+                    <form id="business-register-form" class="kyc-form space-y-4 hidden">
+                        <h3 class="form-section-title">Basic Company Information</h3>
+                        <div><label class="form-label">Company Name</label><input type="text" class="form-input" placeholder="Acme Corporation"></div>
+                        <div><label class="form-label">Industry Type</label><input type="text" class="form-input" placeholder="Steel Manufacturing"></div>
+                        <div><label class="form-label">Location (State / Country)</label><input type="text" class="form-input" placeholder="Maharashtra, India"></div>
+                        <div>
+                            <label class="form-label">Compliance Status</label>
+                            <select class="form-input">
+                                <option>Mandatory Offset</option>
+                                <option>Voluntary Offset</option>
+                            </select>
+                        </div>
+                        <div><label class="form-label">Official Contact Person</label><input type="text" class="form-input" placeholder="Jane Doe"></div>
+
+                        <button type="button" id="business-next-btn" class="w-full mt-6 bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition">Next: KYC Documents</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="register.js"></script>
+</body>
+</html>

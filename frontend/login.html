@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Brokers- Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-4 sm:p-8 overflow-x-hidden">
+
+    <div class="bg-image"></div>
+
+    <div class="container py-8">
+        <header class="flex flex-col sm:flex-row justify-between items-center mb-10 text-center sm:text-left">
+            <div class="mb-4 sm:mb-0">
+                <h1 class="text-4xl sm:text-5xl font-bold text-white mb-2">
+                    Carbon Broker
+                </h1>
+                <p class="text-lg text-gray-400">
+                    Sustainable projects, transparently tracked on the blockchain.
+                </p>
+            </div>
+            <nav class="flex flex-wrap justify-center sm:justify-end gap-3">
+                <!-- <a href="admin.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Admin</a> -->
+                <!-- <a href="ngo-dashboard.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">NGO</a> -->
+                <!-- <a href="business-dashboard.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Business</a> -->
+                <a href="index.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Home</a>
+                <a href="news.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">News</a>
+                <a href="login.html" class="btn btn-active px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Login</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="max-w-md mx-auto">
+                <div class="card p-8 relative">
+                    <!-- <a href="index.html" class="absolute top-6 left-6 text-gray-400 hover:text-white transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                    </a>                             -->
+                                <!-- Login as Admin -->
+                    <a href="admin-login.html" 
+                    class="absolute top-6 right-6 text-sm font-medium text-blue-400 hover:text-blue-500 transition">
+                        Login as Admin
+                    </a>
+                    <h2 class="text-3xl font-bold text-center text-white mb-6">Login</h2>
+                    
+                    <form id="loginForm" class="space-y-6">
+                        <div>
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-input" required placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password" class="form-input" required placeholder="••••••••">
+                        </div>
+
+                        <!-- Toggle Switch for NGO / Business -->
+                        <div class="flex items-center justify-center space-x-4 mt-4">
+                        <!-- NGO label -->
+                        <span id="ngoLabel"
+                            class="px-3 py-1 rounded-full text-sm transition
+                                text-white bg-blue-600 shadow-lg font-semibold">
+                            NGO
+                        </span>
+
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="roleToggle" class="sr-only peer" />
+                            <!-- Background -->
+                            <div
+                            class="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-500 rounded-full peer dark:bg-gray-700 peer-checked:bg-blue-600 transition"
+                            ></div>
+                            <!-- Circle -->
+                            <div
+                            class="absolute left-1 top-1 w-5 h-5 bg-white rounded-full shadow-md peer-checked:translate-x-7 transition"
+                            ></div>
+                        </label>
+
+                        <!-- Business label -->
+                        <span id="businessLabel"
+                            class="px-3 py-1 rounded-full text-sm transition
+                                text-gray-400 bg-transparent">
+                            Business
+                        </span>
+                        </div>
+
+                        <script>
+                        const toggle = document.getElementById("roleToggle");
+                        const ngoLabel = document.getElementById("ngoLabel");
+                        const businessLabel = document.getElementById("businessLabel");
+
+                        function updateLabels() {
+                            if (toggle.checked) {
+                            // Highlight Business
+                            ngoLabel.className =
+                                "px-3 py-1 rounded-full text-sm transition text-gray-400 bg-transparent";
+                            businessLabel.className =
+                                "px-3 py-1 rounded-full text-sm transition text-white bg-blue-600 shadow-lg font-semibold";
+                            } else {
+                            // Highlight NGO
+                            businessLabel.className =
+                                "px-3 py-1 rounded-full text-sm transition text-gray-400 bg-transparent";
+                            ngoLabel.className =
+                                "px-3 py-1 rounded-full text-sm transition text-white bg-blue-600 shadow-lg font-semibold";
+                            }
+                        }
+
+                        toggle.addEventListener("change", updateLabels);
+                        updateLabels(); // initialize
+                        </script>
+
+
+
+                        <button type="submit" class="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
+                            Login
+                        </button>
+                    </form>
+                                            
+                    <p class="text-center text-gray-400 mt-6">
+                        Don't have an account? 
+                        <a href="register.html" class="font-medium text-blue-carbon-light underline">Register here</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const roleToggle = document.getElementById('roleToggle');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // prevent actual form submission
+
+            // Redirect based on toggle
+            if (roleToggle.checked) {
+                window.location.href = 'business-dashboard.html';
+            } else {
+                window.location.href = 'ngo-dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>

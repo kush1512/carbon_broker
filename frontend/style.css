@@ -1,0 +1,187 @@
+:root {
+    --blue-carbon-dark: #07192A;
+    --blue-carbon-medium: #0F3B4E;
+    --blue-carbon-light: #4ECDC4;
+    --blue-carbon-accent: #A2E0C7;
+    --text-light: #F0F4F8;
+    --text-dark: #2D3748;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--blue-carbon-dark);
+    background-image: radial-gradient(at 50% -20%, #0c3e53, var(--blue-carbon-dark));
+    color: var(--text-light);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://placehold.co/1920x1080/07192A/0f3b4e?text=Mangrove+Forest');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    filter: blur(5px) grayscale(50%);
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.btn-active {
+    background-color: var(--blue-carbon-light);
+    color: var(--blue-carbon-dark);
+    box-shadow: 0 0 15px var(--blue-carbon-light);
+    border-color: var(--blue-carbon-light);
+}
+
+.btn-inactive {
+    background-color: transparent;
+    border: 1px solid var(--blue-carbon-medium);
+    color: var(--text-light);
+}
+
+.tab-btn {
+    background-color: transparent;
+    border: 1px solid var(--blue-carbon-medium);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.tab-btn-active {
+    background-color: var(--blue-carbon-accent);
+    color: var(--blue-carbon-dark);
+    border-color: var(--blue-carbon-accent);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--blue-carbon-medium);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--blue-carbon-light);
+}
+
+.pulsing-dot {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+.scrollable-list {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.buy-btn, .sell-btn {
+    background-color: #fca5a5;
+    color: #1a202c;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.buy-btn:hover, .sell-btn:hover {
+    transform: translateY(-2px);
+    background-color: #ef4444;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sell-btn {
+    background-color: #A2E0C7;
+}
+
+.sell-btn:hover {
+    background-color: #4ECDC4;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-item {
+    animation: fade-in 0.5s ease-out forwards;
+}
+
+.form-label {
+    display: block;
+    color: #9ca3af; /* text-gray-400 */
+    margin-bottom: 0.25rem; /* mb-1 */
+    font-size: 0.875rem; /* text-sm */
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.5rem; /* p-2 */
+    border-radius: 0.5rem; /* rounded-lg */
+    background-color: #e5e7eb; /* bg-gray-200 */
+    border: 1px solid #9ca3af; /* border-gray-400 */
+    color: black;
+}
+
+.form-input::placeholder {
+    color: #6b7280; /* placeholder:text-gray-500 */
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #3b82f6; /* focus:border-blue-500 */
+}
+
+.form-section-title {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    color: white;
+    margin-top: 1.5rem; /* mt-6 */
+    margin-bottom: 0.75rem; /* mb-3 */
+    border-bottom: 1px solid #4a5568; /* border-b border-gray-700 */
+    padding-bottom: 0.5rem; /* pb-2 */
+}
+.kyc-form {
+  display: none;
+}
+.kyc-form.active {
+  display: block;
+}

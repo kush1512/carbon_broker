@@ -1,0 +1,67 @@
+// This script is primarily for the business-dashboard.html page.
+window.onload = function() {
+    
+    // --- Business View specific functionality ---
+    const sellBtn = document.getElementById('sell-btn');
+    const sellQuantityInput = document.getElementById('sell-quantity');
+    const sellMessage = document.getElementById('sell-message');
+
+    if (sellBtn) {
+        sellBtn.addEventListener('click', () => {
+            const quantity = sellQuantityInput.value;
+            if (quantity > 0) {
+                sellMessage.textContent = `Success! Your sell order for ${quantity} credits has been submitted.`;
+                sellMessage.classList.remove('hidden');
+                sellMessage.classList.remove('text-red-400');
+                sellMessage.classList.add('text-green-400');
+            } else {
+                sellMessage.textContent = `Please enter a valid quantity to sell.`;
+                sellMessage.classList.remove('hidden');
+                sellMessage.classList.remove('text-green-400');
+                sellMessage.classList.add('text-red-400');
+            }
+            setTimeout(() => {
+                sellMessage.classList.add('hidden');
+            }, 5000);
+        });
+    }
+
+    // --- Price Chart placeholder logic ---
+    const canvas = document.getElementById('priceChart');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+        gradient.addColorStop(0, 'rgba(78, 205, 196, 0.5)');
+        gradient.addColorStop(1, 'rgba(78, 205, 196, 0)');
+        
+        const data = [10, 15, 20, 25, 22, 28, 30, 25, 28, 32, 35, 30];
+        const maxVal = Math.max(...data) * 1.2;
+        const minVal = Math.min(...data) * 0.8;
+        const scaleY = canvas.height / (maxVal - minVal);
+        const scaleX = canvas.width / (data.length - 1);
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height - (data[0] - minVal) * scaleY);
+        for (let i = 1; i < data.length; i++) {
+            ctx.lineTo(i * scaleX, canvas.height - (data[i] - minVal) * scaleY);
+        }
+        ctx.strokeStyle = '#4ECDC4';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        
+        ctx.lineTo(canvas.width, canvas.height);
+        ctx.lineTo(0, canvas.height);
+        ctx.closePath();
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        
+        ctx.fillStyle = '#A2E0C7';
+        data.forEach((val, i) => {
+            ctx.beginPath();
+            ctx.arc(i * scaleX, canvas.height - (val - minVal) * scaleY, 3, 0, Math.PI * 2);
+            ctx.fill();
+        });
+    }
+};

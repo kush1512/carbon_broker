@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Brokers - KYC Documents</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-4 sm:p-8 overflow-x-hidden">
+
+    <div class="bg-image"></div>
+
+    <div class="container py-8">
+        <main>
+            <div class="max-w-3xl mx-auto">
+                <div class="card p-8 relative">
+                    <h2 class="text-3xl font-bold text-center text-white mb-4">Step 2: KYC / Legal Documents</h2>
+
+                    <!-- NGO KYC Form -->
+                    <form id="ngo-kyc-form" class="kyc-form space-y-4 hidden">
+                        <h3 class="form-section-title">NGO KYC Requirements</h3>
+                        <div><label class="form-label">PAN</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Address Proof</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Cancelled Cheque</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Latest CMR copy</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Resolution</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Trust deed</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Certificate of registration</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Self-attested PAN of Trustees</label><input type="file" class="form-input"></div>
+                        <button type="submit" class="w-full mt-6 bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition">Submit NGO Registration</button>
+                    </form>
+
+                    <!-- Business KYC Form -->
+                    <form id="business-kyc-form" class="kyc-form space-y-4 hidden">
+                        <h3 class="form-section-title">Business KYC Requirements</h3>
+                        <div><label class="form-label">Certificate of Incorporation</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Tax ID (PAN/GST)</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Trade License</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">MSME Certificate</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Sustainability/ESG/CSR Reports</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Environmental compliance reports</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Third-party audit reports</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Bank account / Cancelled cheque</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Authorized signatory details</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Blockchain Wallet Address</label><input type="text" class="form-input" placeholder="0xAbCd...EfGh"></div>
+                        <div><label class="form-label">Gov ID and Employee ID</label><input type="file" class="form-input"></div>
+                        <div><label class="form-label">Board Resolution / Power of Attorney</label><input type="file" class="form-input"></div>
+                        <button type="submit" class="w-full mt-6 bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition">Submit Business Registration</button>
+                    </form>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const registrationType = localStorage.getItem('registrationType');
+
+            if (registrationType === 'ngo') {
+                document.getElementById('ngo-kyc-form').classList.add('active');
+                    //ngoForm.style.display = "block";   // <-- force show
+            } else if (registrationType === 'business') {
+                document.getElementById('business-kyc-form').classList.add('active');
+                    //ngoForm.style.display = "block";   // <-- force show
+            } else {
+                alert("Please fill general information first.");
+                window.location.href = 'register.html';
+            }
+        });
+    </script>
+</body>
+</html>

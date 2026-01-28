@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Brokers- NGO Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-4 sm:p-8 overflow-x-hidden">
+
+    <div class="bg-image"></div>
+
+    <div class="container py-8">
+        <header class="flex flex-col sm:flex-row justify-between items-center mb-10 text-center sm:text-left">
+            <div class="mb-4 sm:mb-0">
+                <h1 class="text-4xl sm:text-5xl font-bold text-white mb-2">
+                    Carbon Broker
+                </h1>
+                <p class="text-lg text-gray-400">
+                    Sustainable projects, transparently tracked on the blockchain.
+                </p>
+            </div>
+             <nav class="flex flex-wrap justify-center sm:justify-end gap-3">
+                <!-- <a href="admin.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Admin</a> -->
+                <!-- <a href="ngo-dashboard.html" class="btn btn-active px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">NGO</a>
+                <a href="business-dashboard.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Business</a> -->
+                <a href="index.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Home</a>
+                <a href="news.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">News</a>
+                <a href="login.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Login</a>
+            </nav>
+        </header>
+
+        <main class="space-y-8">
+            <h2 class="text-3xl font-semibold text-white">
+                <span class="inline-block align-middle mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17.5 8 22 11.8A5 5 0 0 0 18.1 18.1c-3.8 4.5-6.8 6.5-11.8 2.2V20z"/></svg>
+                </span>
+                NGO Dashboard
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project Upload -->
+                <div class="card p-6 col-span-1 md:col-span-2 lg:col-span-1">
+                    
+                    <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-medium text-white mb-4">Upload a New Project</h3>
+                    <a href="https://carbon-credit-calc.streamlit.app/" 
+                    class="text-sm font-medium text-blue-400 hover:text-blue-500 transition">
+                    Calculate Carbon Credits
+                    </a>
+                    </div>
+                    <form class="space-y-4" enctype="multipart/form-data">
+                        <div>
+                            <label class="block text-gray-400 mb-1">Project Name</label>
+                            <input type="text" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500" placeholder="e.g., Sundarbans Restoration">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 mb-1">Project Details</label>
+                            <textarea class="w-full p-2 rounded-lg bg-gray-800 border border-gray-700 h-24 focus:outline-none focus:border-blue-500" placeholder="Describe the project goals..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 mb-1">Upload Images</label>
+                            <input type="file" class="w-full text-gray-300 bg-gray-800 border border-gray-700 rounded-lg p-2 focus:outline-none focus:border-blue-500" accept="image/*" multiple>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg font-medium hover:bg-blue-600 transition">Submit Project for Verification</button>
+                    </form>
+                </div>
+
+                <!-- Progress Tracker -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-medium text-white mb-4">Project Progress Tracker</h3>
+                    <div class="bg-gray-800 p-4 rounded-lg mb-4">
+                        <p class="text-sm font-semibold text-gray-300 mb-2">Mangrove Reforestation Project</p>
+                        <div class="w-full bg-gray-700 rounded-full h-4 relative overflow-hidden">
+                            <div class="absolute h-full top-0 left-0 bg-blue-400" style="width: 25%;"></div>
+                            <div class="absolute h-full top-0 left-0 bg-teal-400" style="width: 50%;"></div>
+                            <div class="absolute h-full top-0 left-0 bg-emerald-400" style="width: 75%;"></div>
+                            <div class="absolute h-full top-0 left-0 bg-lime-400" style="width: 100%;"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">Latest update: Satellite images show significant growth. 200 credits earned.</p>
+                    </div>
+                </div>
+
+                <!-- My Carbon Impact Card -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-medium text-white mb-4">My Carbon Impact</h3>
+                    <div class="flex flex-col items-center justify-center p-4">
+                        <svg width="100" height="100" viewBox="0 0 100 100" class="mb-4">
+                            <rect x="45" y="70" width="10" height="20" fill="#4CAF50" rx="2"></rect>
+                            <path d="M50 70 Q 40 60 50 50 Q 60 60 50 70" fill="#81C784"></path>
+                            <path d="M45 70 Q 35 65 45 60" fill="none" stroke="#4CAF50" stroke-width="2"></path>
+                            <path d="M55 70 Q 65 65 55 60" fill="none" stroke="#4CAF50" stroke-width="2"></path>
+                            <g class="transition-transform duration-500">
+                                <path d="M50 70 Q 55 60 65 65 Q 55 75 50 70" fill="#81C784" style="transform: rotate(30deg) translate(20px, -5px); transform-origin: 50% 50%;"></path>
+                                <path d="M50 70 Q 55 60 65 65 Q 55 75 50 70" fill="#81C784" style="transform: rotate(-30deg) translate(-20px, -5px); transform-origin: 50% 50%;"></path>
+                            </g>
+                        </svg>
+                        <p class="text-center text-sm text-gray-300">Time spent on tasks contributes to planting a digital sapling. Each tree represents 1000 kg of CO2 sequestered.</p>
+                        <div class="w-full bg-gray-700 rounded-full h-2 mt-4"><div class="bg-blue-400 h-full rounded-full" style="width: 20%;"></div></div>
+                    </div>
+                </div>
+
+                <!-- Credit Wallet -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-medium text-white mb-4">Credit Wallet</h3>
+                    <div class="bg-gray-800 p-4 rounded-lg">
+                        <p class="text-sm text-gray-300">Total Credits Earned: <span class="text-blue-400 font-bold text-lg">1,250</span></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
