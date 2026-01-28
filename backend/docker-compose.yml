@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7-alpine
+    restart: always
+
+  db_init:
+    build: .
+    command: sh -c "python -m app.init_db && tail -f /dev/null"
+    volumes:
+      - ./app:/app
+      - ./data:/app/data
+    env_file:
+      - .env
+    healthcheck:
+      # This test checks if the database file exists
+      test: ["CMD-SHELL", "test -f /app/data/carbon_project.db || exit 1"]
+      interval: 1s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./app:/app
+      - ./data:/app/data
+    ports:
+      - "8001:8000"
+    env_file:
+      - .env
+    depends_on:
+      redis:
+        condition: service_started
+      db_init:
+        # This condition tells 'web' to wait until 'db_init' is "healthy"
+        condition: service_healthy
+
+  worker:
+    build: .
+    command: celery -A app.tasks.celery_app worker --loglevel=info
+    volumes:
+      - ./app:/app
+      - ./data:/app/data
+    env_file:
+      - .env
+    depends_on:
+      redis:
+        condition: service_started
+      db_init:
+        # This condition tells 'worker' to wait until 'db_init' is "healthy"
+        condition: service_healthy

@@ -1,0 +1,21 @@
+# Web Framework & Server
+fastapi
+uvicorn[standard]
+python-multipart
+requests
+# Background Tasks
+celery
+redis
+
+# Database
+sqlalchemy
+python-dotenv
+
+# Geospatial & Data Analysis
+# IMPORTANT: GDAL must be installed on the system inside the Docker container
+gdal==3.10.3
+rasterio
+geopandas
+pandas
+scikit-image
+matplotlib
