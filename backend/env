@@ -1,0 +1,2 @@
+DATABASE_URL="sqlite:////app/data/carbon_project.db" # Use an absolute path inside the container
+DATA_DIRECTORY="/app/data"
