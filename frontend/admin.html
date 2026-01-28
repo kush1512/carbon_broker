@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Brokers - Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Tooltip styling */
+    .tooltip {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      display: none;
+      pointer-events: none;
+      z-index: 100;
+      max-width: 200px;
+    }
+    .map-container {
+      position: relative;
+      display: inline-block;
+    }
+    .hotspot {
+      position: absolute;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="p-4 sm:p-8 overflow-x-hidden">
+
+  <div class="bg-image"></div>
+
+  <div class="container py-8">
+    <header class="flex flex-col sm:flex-row justify-between items-center mb-10 text-center sm:text-left">
+      <div class="mb-4 sm:mb-0">
+        <h1 class="text-4xl sm:text-5xl font-bold text-white mb-2">Carbon Brokers</h1>
+        <p class="text-lg text-gray-400">Sustainable projects, transparently tracked on the blockchain.</p>
+      </div>
+      <nav class="flex flex-wrap justify-center sm:justify-end gap-3">
+        <!-- <a href="admin.html" class="btn btn-active px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Admin</a> -->
+        <!-- <a href="ngo-dashboard.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">NGO</a> -->
+        <!-- <a href="business-dashboard.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Business</a> -->
+        <a href="index.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Home</a>
+        <a href="news.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">News</a>
+        <a href="login.html" class="btn btn-inactive px-5 py-2 rounded-full font-medium transition duration-300 hover:scale-105">Login</a>
+      </nav>
+    </header>
+
+    <main class="space-y-8">
+      <h2 class="text-3xl font-semibold text-white">
+        <span class="inline-block align-middle mr-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" x2="9" y1="3" y2="18"></line><line x1="15" x2="15" y1="6" y2="21"></line></svg>
+        </span>
+        Admin Dashboard
+      </h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2 card p-4 sm:p-6">
+          <h3 class="text-xl font-medium text-white mb-4">Project Map</h3>
+          <div class="map-container">
+            <img src="image.png" alt="Mangrove Map" class="w-full rounded-2xl" />
+
+            <!-- Hotspots -->
+            <div class="hotspot" style="top: 65%; left: 18%; width: 40px; height: 40px;" data-name="Forest Friends" data-location="Mumbai, Maharashtra" data-credits="5 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 42%; left: 10%; width: 40px; height: 40px;" data-name="Green Delta" data-location="Ahmedabad, Gujarat" data-credits="3 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 38%; left: 74%; width: 40px; height: 40px;" data-name="Sundarban Shield" data-location="Kolkata, West Bengal" data-credits="12 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 52%; left: 50%; width: 40px; height: 40px;" data-name="Blue Roots" data-location="Bhubaneswar, Odisha" data-credits="8 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 70%; left: 50%; width: 40px; height: 40px;" data-name="Mangrove Matrix" data-location="Visakhapatnam, Andhra Pradesh" data-credits="10 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 82%; left: 46%; width: 40px; height: 40px;" data-name="Coastal Care" data-location="Chennai, Tamil Nadu" data-credits="4 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 82%; left: 25%; width: 40px; height: 40px;" data-name="Backwater Greens" data-location="Kochi, Kerala" data-credits="6 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 75%; left: 30%; width: 40px; height: 40px; z-index: 100;" data-name="Western Guard" data-location="Mangalore, Karnataka" data-credits="4 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 72%; left: 22%; width: 40px; height: 40px;" data-name="Coastal Shield" data-location="Panaji, Goa" data-credits="3 tonnes of CO2"></div>
+            <div class="hotspot" style="top: 78%; left: 55%; width: 40px; height: 40px;" data-name="Island Guard" data-location="Port Blair, Andaman & Nicobar Islands" data-credits="15 tonnes of CO2"></div>
+
+            <!-- Tooltip -->
+            <div id="tooltip" class="tooltip"></div>
+          </div>
+        </div>
+
+        <!-- Right-hand cards omitted for brevity -->
+        <!-- Right-hand side cards -->
+                <div class="lg:col-span-1 flex flex-col space-y-6">
+                    <!-- MRV Data Display -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-medium text-white mb-4">MRV Data & Alerts</h3>
+                        <div class="bg-gray-800 p-4 rounded-lg mb-4 border border-red-500 border-dashed relative">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-red-500 text-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alert-triangle"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+                                <p class="text-sm text-red-400 font-semibold">Satellite Alert: Unauthorized deforestation detected in Project X.</p>
+                                <span class="absolute top-2 right-2 h-3 w-3 rounded-full bg-red-500 pulsing-dot"></span>
+                            </div>
+                        </div>
+                        <ul class="space-y-3 text-sm text-gray-300">
+                            <li class="flex items-center"><span class="mr-2 text-red-400">&#9679;</span>Project Y: MRV sensor data offline.</li>
+                            <li class="flex items-center"><span class="mr-2 text-yellow-400">&#9679;</span>Project Z: Data update pending verification.</li>
+                        </ul>
+                        <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-600 transition">View All Alerts</button>
+                    </div>
+                    <!-- System Health Card -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-medium text-white mb-4">System Health</h3>
+                        <ul class="space-y-3 text-sm text-gray-300">
+                            <li class="flex justify-between"><span>Active Projects:</span><span class="text-green-400">12</span></li>
+                            <li class="flex justify-between"><span>Total Transactions:</span><span class="text-blue-400">4,580</span></li>
+                            <li class="flex justify-between"><span>Credits in Circulation:</span><span class="text-lime-400">1.2M</span></li>
+                            <li class="flex justify-between"><span>Last Audit:</span><span class="text-gray-400">2023-11-20</span></li>
+                        </ul>
+                    </div>
+                </div> 
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const hotspots = document.querySelectorAll('.hotspot');
+    const tooltip = document.getElementById('tooltip');
+    const mapContainer = document.querySelector('.map-container');
+
+    hotspots.forEach(hotspot => {
+      hotspot.addEventListener('mouseenter', () => {
+        tooltip.innerHTML = `
+          <strong>Name:</strong> ${hotspot.dataset.name}<br>
+          <strong>Location:</strong> ${hotspot.dataset.location}<br>
+          <strong>Credits Sequestered:</strong> ${hotspot.dataset.credits}
+        `;
+        tooltip.style.display = 'block';
+      });
+
+      hotspot.addEventListener('mousemove', (e) => {
+        const rect = mapContainer.getBoundingClientRect();
+        const offsetX = 10; // distance from cursor
+        const offsetY = 10;
+
+        let x = e.clientX - rect.left + offsetX;
+        let y = e.clientY - rect.top + offsetY;
+
+        // Prevent tooltip from going outside map
+        if (x + tooltip.offsetWidth > rect.width) x = rect.width - tooltip.offsetWidth - 5;
+        if (y + tooltip.offsetHeight > rect.height) y = rect.height - tooltip.offsetHeight - 5;
+
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+      });
+
+      hotspot.addEventListener('mouseleave', () => {
+        tooltip.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
